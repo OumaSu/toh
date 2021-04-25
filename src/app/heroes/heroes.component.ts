@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
-import {Hero} from "../hero";
-import {HeroService} from "../hero.service";
+import {Hero} from '../hero';
+import {HeroService} from '../hero.service';
 
 @Component({
   selector: 'app-heroes',
@@ -8,16 +8,16 @@ import {HeroService} from "../hero.service";
   styleUrls: ['./heroes.component.scss']
 })
 export class HeroesComponent implements OnInit {
-  heroes?: Hero[]; //в туториале здесь без undefined check но без него все ломается
+  heroes?: Hero[]; // в туториале здесь без undefined check но без него все ломается
 
   constructor(private heroService: HeroService) {
   }
 
-  ngOnInit() {
+  ngOnInit(): void {
     this.getHeroes();
   }
 
-  getHeroes() {
+  getHeroes(): void {
     this.heroService
       .getHeroes()
       .subscribe(heroes => this.heroes = heroes);
